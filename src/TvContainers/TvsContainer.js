@@ -3,9 +3,7 @@ import { getTvs } from '../services/api'
 import Tvs from '../Components/Tvs'
 
 class TvsContainer extends Component{
-    // state = {
-    //     movies: getMovies
-    // }
+
     
     constructor(props){
 
@@ -19,7 +17,7 @@ class TvsContainer extends Component{
     }
     
     componentWillMount(){
-        // sort='airing_today'
+
         this.fetchData(this.props.sort)
     }
     fetchData = (sort) => {
@@ -31,11 +29,11 @@ class TvsContainer extends Component{
     }
 
     render(){
-        // const { movies } = this.state.movies
+
         return(
             <div>
                 <Tvs
-                    // title = {title}
+   
                     Tvs = {this.state.Tvs}
                     />
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
 import TvCard from './TvCard'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, DropdownButton } from 'react-bootstrap';
+import { Dropdown,DropdownButton } from 'react-bootstrap';
 
 
 const getStyles = makeStyles(theme => ({
@@ -15,7 +15,7 @@ const getStyles = makeStyles(theme => ({
       const classes = getStyles()
       return (
           <div className='container'>
-              <DropdownButton id="dropdown-basic-button" title="Filter">
+              <DropdownButton style={{textAlign: "center"}} id="dropdown-basic-button" title="Filter">
                     <Dropdown.Item href="/TvContainers">Airing Today</Dropdown.Item>
                     <Dropdown.Item href="/TvOnAirContainers">Now on air</Dropdown.Item>
                     <Dropdown.Item href="/TvPopularContainers">Popular</Dropdown.Item>
@@ -24,9 +24,9 @@ const getStyles = makeStyles(theme => ({
                 </DropdownButton>
               <Grid container className={classes.root} spacing={5}>
                 {props.Tvs.map(tv => {
-                const { id, poster_path, name, overview } = tv
+                const { id, poster_path, name, overview , popularity, first_air_date} = tv
                 return (
-                    <Grid item xs={3}>
+                    <Grid item xs={12}>
                     <TvCard
                         key={id}
                         
@@ -35,7 +35,8 @@ const getStyles = makeStyles(theme => ({
                         imageurl={"https://image.tmdb.org/t/p/w400/"+ poster_path}
                         title={name}
                         overview = {overview}
-                        // publisher={publisher}
+                        popularity = {popularity}
+                        release_date = {first_air_date}
                     />
                     </Grid>
                 )

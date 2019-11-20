@@ -9,7 +9,6 @@ class MoviesContainer extends Component{
     }
     
     componentDidMount(){
-        // sort='now_playing'
         this.fetchData(this.props.sort)
         
     }
@@ -22,11 +21,10 @@ class MoviesContainer extends Component{
     }
 
     render(){
-        // const { movies } = this.state.movies
+
         return(
             <div>
                 <Movies
-                    // title = {title}
                     movies = {this.state.movies}
                     />
             </div>

@@ -3,10 +3,6 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
 import MovieCard from './MovieCard'
 
-
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, DropdownButton } from 'react-bootstrap';
-
-
 const getStyles = makeStyles(theme => ({
     root: {
       margin: '5em 0'
@@ -18,17 +14,12 @@ const getStyles = makeStyles(theme => ({
       return (
     
           <div className='container'>
-                <DropdownButton id="dropdown-basic-button" title="Filter">
-                    <Dropdown.Item href="/SearchContainers">Search Movie</Dropdown.Item>
-                    <Dropdown.Item href="/SearchMultiContainers">Search Multi</Dropdown.Item>
-                    <Dropdown.Item href="/SearchTvsContainers">Search Tv</Dropdown.Item>
-                    
-                </DropdownButton>
+         
               <Grid container className={classes.root} spacing={5}>
                 {props.movies.map(movie => {
-                        const { id, poster_path, title, overview } = movie
+                        const { id, poster_path, title, overview,popularity, release_date } = movie
                         return (
-                            <Grid item xs={3}>
+                            <Grid item xs={12}>
                             <MovieCard
                                 key={id}
                                 
@@ -39,7 +30,8 @@ const getStyles = makeStyles(theme => ({
                                 title = {title}
                                
                                 overview = {overview}
-                                // publisher={publisher}
+                                popularity = {popularity}
+                                release_date = {release_date}
                             />
                             </Grid>
                         )
